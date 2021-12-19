@@ -19,8 +19,12 @@ class ConsoleApp
 
     public function run()
     {
-        return ($this->pipeline)(null) === false
-            ? static::EXIT_FAILURE
-            : static::EXIT_SUCCESS;
+        try {
+            return ($this->pipeline)(null) === false
+                ? static::EXIT_FAILURE
+                : static::EXIT_SUCCESS;
+        } catch (ConsoleAppException $exc) {
+            return static::EXIT_FAILURE;
+        }
     }
 }

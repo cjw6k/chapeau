@@ -3,6 +3,7 @@
 namespace Tests;
 
 use Chapeau\ConsoleApp;
+use Chapeau\ConsoleAppException;
 use League\CLImate\Argument\Manager;
 use League\CLImate\CLImate;
 use League\Pipeline\Pipeline;
@@ -44,6 +45,20 @@ class ConsoleAppTest extends TestCase
         $mockPipeline = $this->createConfiguredMock(Pipeline::class, [
             '__invoke' => false,
         ]);
+
+        $app = new ConsoleApp($mockPipeline);
+        $exitStatus = $app->run();
+
+        $this->assertSame(ConsoleApp::EXIT_FAILURE, $exitStatus);
+    }
+
+    /**
+     * @test
+     */
+    public function it_returns_EXIT_FAILURE_when_the_pipeline_throws_a_ConsoleAppException()
+    {
+        $mockPipeline = $this->createMock(Pipeline::class);
+        $mockPipeline->expects($this->once())->method('__invoke')->willThrowException(new ConsoleAppException());
 
         $app = new ConsoleApp($mockPipeline);
         $exitStatus = $app->run();
