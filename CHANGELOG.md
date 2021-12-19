@@ -13,3 +13,4 @@ Versioning](http://semver.org/spec/v2.0.0.html).
 - Initialized the project with composer.
 - Added dev dependency: [phpunit](https://phpunit.de/).
 - Added dependency: [pipeline](https://pipeline.thephpleague.com/).
+- Added dependency: [CLImate](https://climate.thephpleague.com/).

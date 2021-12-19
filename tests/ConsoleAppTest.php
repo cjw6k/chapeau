@@ -6,6 +6,7 @@ use Chapeau\ConsoleApp;
 use Chapeau\ConsoleAppException;
 use League\CLImate\Argument\Manager;
 use League\CLImate\CLImate;
+use League\CLImate\Exceptions\InvalidArgumentException;
 use League\Pipeline\Pipeline;
 use PHPUnit\Framework\TestCase;
 
@@ -31,7 +32,11 @@ class ConsoleAppTest extends TestCase
             '__invoke' => $pipelineReturn,
         ]);
 
-        $app = new ConsoleApp($mockPipeline);
+        $dummyCli = $this->createStub(CLImate::class);
+        $dummyCliArgManager = $this->createStub(Manager::class);
+        $dummyCli->arguments = $dummyCliArgManager;
+
+        $app = new ConsoleApp($mockPipeline, $dummyCli);
         $exitStatus = $app->run();
 
         $this->assertSame(ConsoleApp::EXIT_SUCCESS, $exitStatus);
@@ -46,7 +51,11 @@ class ConsoleAppTest extends TestCase
             '__invoke' => false,
         ]);
 
-        $app = new ConsoleApp($mockPipeline);
+        $dummyCli = $this->createStub(CLImate::class);
+        $dummyCliArgManager = $this->createStub(Manager::class);
+        $dummyCli->arguments = $dummyCliArgManager;
+
+        $app = new ConsoleApp($mockPipeline, $dummyCli);
         $exitStatus = $app->run();
 
         $this->assertSame(ConsoleApp::EXIT_FAILURE, $exitStatus);
@@ -58,9 +67,31 @@ class ConsoleAppTest extends TestCase
     public function it_returns_EXIT_FAILURE_when_the_pipeline_throws_a_ConsoleAppException()
     {
         $mockPipeline = $this->createMock(Pipeline::class);
-        $mockPipeline->expects($this->once())->method('__invoke')->willThrowException(new ConsoleAppException());
+        $mockPipeline->expects($this->once())->method('__invoke')->willThrowException(new ConsoleAppException);
 
-        $app = new ConsoleApp($mockPipeline);
+        $dummyCli = $this->createStub(CLImate::class);
+        $dummyCliArgManager = $this->createStub(Manager::class);
+        $dummyCli->arguments = $dummyCliArgManager;
+
+        $app = new ConsoleApp($mockPipeline, $dummyCli);
+        $exitStatus = $app->run();
+
+        $this->assertSame(ConsoleApp::EXIT_FAILURE, $exitStatus);
+    }
+
+    /**
+     * @test
+     */
+    public function it_returns_EXIT_FAILURE_when_required_CLImate_arguments_are_missing()
+    {
+        $mockCliArgManager = $this->createMock(Manager::class);
+        $mockCliArgManager->expects($this->once())->method('parse')->willThrowException(new InvalidArgumentException);
+        $stubCli = $this->createStub(CLImate::class);
+        $stubCli->arguments = $mockCliArgManager;
+
+        $dummyPipeline = $this->createStub(Pipeline::class);
+
+        $app = new ConsoleApp($dummyPipeline, $stubCli);
         $exitStatus = $app->run();
 
         $this->assertSame(ConsoleApp::EXIT_FAILURE, $exitStatus);
