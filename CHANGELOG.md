@@ -11,3 +11,4 @@ Versioning](http://semver.org/spec/v2.0.0.html).
 - A minimal [README.md](README.md).
 - Added [CONTRIBUTING.md](CONTRIBUTING.md) for clarity.
 - Initialized the project with composer.
+- Added dev dependency: [phpunit](https://phpunit.de/).
