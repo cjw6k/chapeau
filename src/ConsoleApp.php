@@ -24,6 +24,7 @@ class ConsoleApp
     public function run()
     {
         if (! $this->parseArgs()) {
+            $this->cli->usage();
             return static::EXIT_FAILURE;
         }
 

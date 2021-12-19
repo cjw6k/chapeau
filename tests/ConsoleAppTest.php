@@ -96,4 +96,21 @@ class ConsoleAppTest extends TestCase
 
         $this->assertSame(ConsoleApp::EXIT_FAILURE, $exitStatus);
     }
+
+    /**
+     * @test
+     */
+    public function it_prints_a_usage_message_if_required_CLImate_arguments_are_missing()
+    {
+        $mockCliArgManager = $this->createMock(Manager::class);
+        $mockCliArgManager->expects($this->once())->method('parse')->willThrowException(new InvalidArgumentException);
+        $mockCli = $this->createMock(CLImate::class);
+        $mockCli->arguments = $mockCliArgManager;
+        $mockCli->expects($this->once())->method('usage');
+
+        $dummyPipeline = $this->createStub(Pipeline::class);
+
+        $app = new ConsoleApp($dummyPipeline, $mockCli);
+        $app->run();
+    }
 }
