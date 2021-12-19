@@ -28,9 +28,9 @@ class ConsoleApp
         }
 
         try {
-            return ($this->pipeline)(null) === false
-                ? static::EXIT_FAILURE
-                : static::EXIT_SUCCESS;
+            return is_null(($this->pipeline)(null))
+                ? static::EXIT_SUCCESS
+                : static::EXIT_FAILURE;
         } catch (ConsoleAppException $exc) {
             $this->cli->error($exc);
             return static::EXIT_FAILURE;

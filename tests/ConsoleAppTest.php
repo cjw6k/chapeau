@@ -18,6 +18,7 @@ class ConsoleAppTest extends TestCase
     /**
      * @test
      * @testWith [true]
+     *           [false]
      *           [0]
      *           [""]
      *           ["foo"]
@@ -26,7 +27,7 @@ class ConsoleAppTest extends TestCase
      *
      * @param mixed $pipelineReturn
      */
-    public function it_returns_EXIT_SUCCESS_when_the_pipeline_returns_not_false($pipelineReturn): void
+    public function it_returns_EXIT_FAILURE_when_the_pipeline_returns_non_null($pipelineReturn): void
     {
         $mockPipeline = $this->createConfiguredMock(Pipeline::class, [
             '__invoke' => $pipelineReturn,
@@ -39,16 +40,16 @@ class ConsoleAppTest extends TestCase
         $app = new ConsoleApp($mockPipeline, $dummyCli);
         $exitStatus = $app->run();
 
-        $this->assertSame(ConsoleApp::EXIT_SUCCESS, $exitStatus);
+        $this->assertSame(ConsoleApp::EXIT_FAILURE, $exitStatus);
     }
 
     /**
      * @test
      */
-    public function it_returns_EXIT_FAILURE_when_the_pipeline_returns_false(): void
+    public function it_returns_EXIT_SUCCESS_when_the_pipeline_returns_null(): void
     {
         $mockPipeline = $this->createConfiguredMock(Pipeline::class, [
-            '__invoke' => false,
+            '__invoke' => null,
         ]);
 
         $dummyCli = $this->createStub(CLImate::class);
@@ -58,7 +59,7 @@ class ConsoleAppTest extends TestCase
         $app = new ConsoleApp($mockPipeline, $dummyCli);
         $exitStatus = $app->run();
 
-        $this->assertSame(ConsoleApp::EXIT_FAILURE, $exitStatus);
+        $this->assertSame(ConsoleApp::EXIT_SUCCESS, $exitStatus);
     }
 
     /**
