@@ -82,6 +82,24 @@ class ConsoleAppTest extends TestCase
     /**
      * @test
      */
+    public function it_prints_the_exception_when_the_pipeline_throws_a_ConsoleAppException()
+    {
+        $exception = new ConsoleAppException('foo');
+        $mockPipeline = $this->createMock(Pipeline::class);
+        $mockPipeline->expects($this->once())->method('__invoke')->willThrowException($exception);
+
+        $mockCli = $this->createMock(CLImate::class);
+        $dummyCliArgManager = $this->createStub(Manager::class);
+        $mockCli->arguments = $dummyCliArgManager;
+        $mockCli->expects($this->once())->method('__call')->with('error', [(string)$exception]);
+
+        $app = new ConsoleApp($mockPipeline, $mockCli);
+        $app->run();
+    }
+
+    /**
+     * @test
+     */
     public function it_returns_EXIT_FAILURE_when_required_CLImate_arguments_are_missing()
     {
         $mockCliArgManager = $this->createMock(Manager::class);

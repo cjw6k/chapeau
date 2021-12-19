@@ -32,6 +32,7 @@ class ConsoleApp
                 ? static::EXIT_FAILURE
                 : static::EXIT_SUCCESS;
         } catch (ConsoleAppException $exc) {
+            $this->cli->error($exc);
             return static::EXIT_FAILURE;
         }
     }
