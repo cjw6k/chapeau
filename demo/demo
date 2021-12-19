@@ -1,0 +1,27 @@
+#!/usr/bin/env php
+<?php
+
+use Chapeau\ConsoleApp;
+use League\CLImate\CLImate;
+use League\Pipeline\Pipeline;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$cli = new CLImate();
+$cli->arguments->add([
+    'name' => [
+        'description' => 'Enter your name.',
+        'required' => true,
+    ]
+]);
+
+$pipeline = (new Pipeline())
+    ->pipe(function () use ($cli) {
+        return $cli->arguments->get('name');
+    })
+    ->pipe(function ($payload) use ($cli) {
+        $cli->out("Hi $payload.");
+    });
+
+$app = new ConsoleApp($pipeline, $cli);
+exit($app->run());

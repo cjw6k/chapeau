@@ -2,6 +2,13 @@
     "name": "cjw6k/chapeau",
     "description": "run php process pipelines via console application",
     "license": "BSD-3-Clause",
+    "keywords": ["cli", "pipeline"],
+    "authors": [
+        {
+            "name": "cjw6k",
+            "homepage": "https://cj.w6k.ca/"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Chapeau\\": "src/"
@@ -12,17 +19,12 @@
             "Tests\\": "tests/"
         }
     },
-    "authors": [
-        {
-            "name": "cjw6k"
-        }
-    ],
-    "require-dev": {
-        "phpunit/phpunit": "^9.5"
-    },
     "require": {
         "php": ">=7.4",
         "league/pipeline": "^1.0",
         "league/climate": "^3.7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
     }
 }

@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.0.0] 2021-12-19
 ### Added
 - This CHANGELOG to track what's happening here.
 - Licensed (BSD-3-Clause) this work, see [LICENSE](LICENSE) for details.
@@ -17,3 +19,4 @@ Versioning](http://semver.org/spec/v2.0.0.html).
 - Dependency: [CLImate](https://climate.thephpleague.com/).
 - Generated a phpunit configuration.
 - Ignore build/test artifact: test coverage HTML.
+- A little demo.
