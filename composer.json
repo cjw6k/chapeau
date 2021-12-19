@@ -1,0 +1,16 @@
+{
+    "name": "cjw6k/chapeau",
+    "description": "run php process pipelines via console application",
+    "license": "BSD-3-Clause",
+    "autoload": {
+        "psr-4": {
+            "Chapeau\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "cjw6k"
+        }
+    ],
+    "require": {}
+}

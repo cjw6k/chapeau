@@ -10,3 +10,4 @@ Versioning](http://semver.org/spec/v2.0.0.html).
 - Licensed (BSD-3-Clause) this work, see [LICENSE](LICENSE) for details.
 - A minimal [README.md](README.md).
 - Added [CONTRIBUTING.md](CONTRIBUTING.md) for clarity.
+- Initialized the project with composer.
