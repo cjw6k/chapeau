@@ -6,11 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
 - This CHANGELOG to track what's happening here.
 - Licensed (BSD-3-Clause) this work, see [LICENSE](LICENSE) for details.
 - A minimal [README.md](README.md).
 - Added [CONTRIBUTING.md](CONTRIBUTING.md) for clarity.
 - Initialized the project with composer.
-- Added dev dependency: [phpunit](https://phpunit.de/).
-- Added dependency: [pipeline](https://pipeline.thephpleague.com/).
-- Added dependency: [CLImate](https://climate.thephpleague.com/).
+- Dev dependency: [phpunit](https://phpunit.de/).
+- Dependency: [pipeline](https://pipeline.thephpleague.com/).
+- Dependency: [CLImate](https://climate.thephpleague.com/).
+- Generated a phpunit configuration.
+- Ignore build/test artifact: test coverage HTML.
