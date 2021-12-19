@@ -113,4 +113,25 @@ class ConsoleAppTest extends TestCase
         $app = new ConsoleApp($dummyPipeline, $mockCli);
         $app->run();
     }
+
+    /**
+     * @test
+     */
+    public function it_prints_an_error_message_describing_semantics_if_arguments_are_not_good()
+    {
+        $cliErrorMessage = 'foo';
+        $mockCliArgManager = $this->createMock(Manager::class);
+        $mockCliArgManager->expects($this->once())->method('parse')->willThrowException(
+            new InvalidArgumentException($cliErrorMessage)
+        );
+        $mockCli = $this->createMock(CLImate::class);
+        $mockCli->arguments = $mockCliArgManager;
+        $mockCli->expects($this->once())->method('__call')->with('error', [PHP_EOL . $cliErrorMessage]);
+
+        $dummyPipeline = $this->createStub(Pipeline::class);
+
+        $app = new ConsoleApp($dummyPipeline, $mockCli);
+        $app->run();
+
+    }
 }

@@ -24,7 +24,6 @@ class ConsoleApp
     public function run()
     {
         if (! $this->parseArgs()) {
-            $this->cli->usage();
             return static::EXIT_FAILURE;
         }
 
@@ -42,6 +41,8 @@ class ConsoleApp
         try {
             $this->cli->arguments->parse();
         } catch (InvalidArgumentException $exc) {
+            $this->cli->usage();
+            $this->cli->error(PHP_EOL . $exc->getMessage());
             return false;
         }
 
