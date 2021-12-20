@@ -15,7 +15,8 @@ Send issues via the [ticket tracker](https://todo.sr.ht/~cjw6k/chapeau).
 Check out the [mailing list](https://lists.sr.ht/~cjw6k/chapeau-garage).
 
 ## Contributing
-Contributors agree to adhere to the project license. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Contributors agree to adhere to the project license. See
+[CONTRIBUTING.md](https://git.sr.ht/~cjw6k/chapeau/tree/main/item/CONTRIBUTING.md).
 
 ## License
-BSD-3-Clause, see [LICENSE](LICENSE).
+BSD-3-Clause, see [LICENSE](https://git.sr.ht/~cjw6k/chapeau/tree/main/item/LICENSE).
