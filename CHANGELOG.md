@@ -9,6 +9,7 @@ Versioning](http://semver.org/spec/v2.0.0.html).
 ### Added
 - Dev dependency: [phpcs](https://github.com/squizlabs/PHP_CodeSniffer)
 - Dev dependency: [psalm](https://psalm.dev)
+- sourcehut build manifest
 
 ### Fixed
 - use absolute links to repo files in the README.md.
