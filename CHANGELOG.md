@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.1.0] 2022-03-13
 ### Added
 - Dev dependency: [phpcs](https://github.com/squizlabs/PHP_CodeSniffer)
 - Dev dependency: [psalm](https://psalm.dev)
