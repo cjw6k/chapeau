@@ -12,7 +12,7 @@ class ConsoleApp
     public const EXIT_SUCCESS = 0;
     public const EXIT_FAILURE = 1;
 
-    private Pipeline $pipeline;
+    private PipelineInterface $pipeline;
     private CLImate $cli;
 
     public function __construct(PipelineInterface $pipeline, CLImate $cli)
@@ -21,7 +21,7 @@ class ConsoleApp
         $this->cli = $cli;
     }
 
-    public function run()
+    public function run(): int
     {
         if (! $this->parseArgs()) {
             return static::EXIT_FAILURE;
@@ -32,7 +32,7 @@ class ConsoleApp
                 ? static::EXIT_SUCCESS
                 : static::EXIT_FAILURE;
         } catch (ConsoleAppException $exc) {
-            $this->cli->error($exc);
+            $this->cli->error((string)$exc);
             return static::EXIT_FAILURE;
         }
     }

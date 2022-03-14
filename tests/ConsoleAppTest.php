@@ -65,7 +65,7 @@ class ConsoleAppTest extends TestCase
     /**
      * @test
      */
-    public function it_returns_EXIT_FAILURE_when_the_pipeline_throws_a_ConsoleAppException()
+    public function it_returns_EXIT_FAILURE_when_the_pipeline_throws_a_ConsoleAppException(): void
     {
         $mockPipeline = $this->createMock(Pipeline::class);
         $mockPipeline->expects($this->once())->method('__invoke')->willThrowException(new ConsoleAppException());
@@ -83,7 +83,7 @@ class ConsoleAppTest extends TestCase
     /**
      * @test
      */
-    public function it_prints_the_exception_when_the_pipeline_throws_a_ConsoleAppException()
+    public function it_prints_the_exception_when_the_pipeline_throws_a_ConsoleAppException(): void
     {
         $exception = new ConsoleAppException('foo');
         $mockPipeline = $this->createMock(Pipeline::class);
@@ -101,7 +101,7 @@ class ConsoleAppTest extends TestCase
     /**
      * @test
      */
-    public function it_returns_EXIT_FAILURE_when_required_CLImate_arguments_are_missing()
+    public function it_returns_EXIT_FAILURE_when_required_CLImate_arguments_are_missing(): void
     {
         $mockCliArgManager = $this->createMock(Manager::class);
         $mockCliArgManager->expects($this->once())->method('parse')->willThrowException(new InvalidArgumentException());
@@ -119,7 +119,7 @@ class ConsoleAppTest extends TestCase
     /**
      * @test
      */
-    public function it_prints_a_usage_message_if_required_CLImate_arguments_are_missing()
+    public function it_prints_a_usage_message_if_required_CLImate_arguments_are_missing(): void
     {
         $mockCliArgManager = $this->createMock(Manager::class);
         $mockCliArgManager->expects($this->once())->method('parse')->willThrowException(new InvalidArgumentException());
@@ -136,7 +136,7 @@ class ConsoleAppTest extends TestCase
     /**
      * @test
      */
-    public function it_prints_an_error_message_describing_semantics_if_arguments_are_not_good()
+    public function it_prints_an_error_message_describing_semantics_if_arguments_are_not_good(): void
     {
         $cliErrorMessage = 'foo';
         $mockCliArgManager = $this->createMock(Manager::class);
