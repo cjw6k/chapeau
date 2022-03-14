@@ -12,6 +12,7 @@ Versioning](http://semver.org/spec/v2.0.0.html).
 
 ### Fixed
 - use absolute links to repo files in the README.md.
+- make demo executable
 
 ## [1.0.0] 2021-12-19
 ### Added
