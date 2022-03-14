@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Dev dependency: [phpcs](https://github.com/squizlabs/PHP_CodeSniffer)
+
 ### Fixed
 - use absolute links to repo files in the README.md.
 

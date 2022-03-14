@@ -68,7 +68,7 @@ class ConsoleAppTest extends TestCase
     public function it_returns_EXIT_FAILURE_when_the_pipeline_throws_a_ConsoleAppException()
     {
         $mockPipeline = $this->createMock(Pipeline::class);
-        $mockPipeline->expects($this->once())->method('__invoke')->willThrowException(new ConsoleAppException);
+        $mockPipeline->expects($this->once())->method('__invoke')->willThrowException(new ConsoleAppException());
 
         $dummyCli = $this->createStub(CLImate::class);
         $dummyCliArgManager = $this->createStub(Manager::class);
@@ -104,7 +104,7 @@ class ConsoleAppTest extends TestCase
     public function it_returns_EXIT_FAILURE_when_required_CLImate_arguments_are_missing()
     {
         $mockCliArgManager = $this->createMock(Manager::class);
-        $mockCliArgManager->expects($this->once())->method('parse')->willThrowException(new InvalidArgumentException);
+        $mockCliArgManager->expects($this->once())->method('parse')->willThrowException(new InvalidArgumentException());
         $stubCli = $this->createStub(CLImate::class);
         $stubCli->arguments = $mockCliArgManager;
 
@@ -122,7 +122,7 @@ class ConsoleAppTest extends TestCase
     public function it_prints_a_usage_message_if_required_CLImate_arguments_are_missing()
     {
         $mockCliArgManager = $this->createMock(Manager::class);
-        $mockCliArgManager->expects($this->once())->method('parse')->willThrowException(new InvalidArgumentException);
+        $mockCliArgManager->expects($this->once())->method('parse')->willThrowException(new InvalidArgumentException());
         $mockCli = $this->createMock(CLImate::class);
         $mockCli->arguments = $mockCliArgManager;
         $mockCli->expects($this->once())->method('usage');
@@ -151,6 +151,5 @@ class ConsoleAppTest extends TestCase
 
         $app = new ConsoleApp($dummyPipeline, $mockCli);
         $app->run();
-
     }
 }

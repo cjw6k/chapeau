@@ -9,8 +9,8 @@ use League\Pipeline\PipelineInterface;
 
 class ConsoleApp
 {
-    const EXIT_SUCCESS = 0;
-    const EXIT_FAILURE = 1;
+    public const EXIT_SUCCESS = 0;
+    public const EXIT_FAILURE = 1;
 
     private Pipeline $pipeline;
     private CLImate $cli;
