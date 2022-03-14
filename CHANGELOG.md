@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- updated dependency, league/climate, to 3.8.1
+- updated dev dependency, phpunit/phpunit, to 9.5.18
 
 ## [1.1.0] 2022-03-13
 ### Added
