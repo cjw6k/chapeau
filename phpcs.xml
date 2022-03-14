@@ -3,6 +3,7 @@
 
     <description>The coding standard for chapeau.</description>
 
+    <file>./demo</file>
     <file>./src</file>
     <file>./tests</file>
 
