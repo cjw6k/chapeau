@@ -24,16 +24,16 @@ class ConsoleApp
     public function run(): int
     {
         if (! $this->parseArgs()) {
-            return static::EXIT_FAILURE;
+            return (int)static::EXIT_FAILURE;
         }
 
         try {
             return is_null(($this->pipeline)(null))
-                ? static::EXIT_SUCCESS
-                : static::EXIT_FAILURE;
+                ? (int)static::EXIT_SUCCESS
+                : (int)static::EXIT_FAILURE;
         } catch (ConsoleAppException $exc) {
             $this->cli->error((string)$exc);
-            return static::EXIT_FAILURE;
+            return (int)static::EXIT_FAILURE;
         }
     }
 
