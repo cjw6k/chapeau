@@ -13,7 +13,7 @@ sources:
   - https://git.sr.ht/~cjw6k/chapeau
 tasks:
   - setup: |
-      sudo ln -s /usr/bin/php81 /usr/bin/php
+      sudo ln -s /usr/bin/php8 /usr/bin/php
       sudo sed -i 's/memory_limit\s*=.*/memory_limit=1G/g' /etc/php8/php.ini
       sudo sed -i 's/;zend/zend/g' /etc/php8/conf.d/50_xdebug.ini
       sudo sed -i 's/;xdebug/xdebug/g' /etc/php8/conf.d/50_xdebug.ini
