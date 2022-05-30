@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "87685ef6188589612b8636ff2912f511",
+    "content-hash": "17a4bfbcd882a621d564f0948b4b3a95",
     "packages": [
         {
             "name": "league/climate",
@@ -4030,7 +4030,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.4"
+        "php": "^8.1"
     },
     "platform-dev": [],
     "plugin-api-version": "2.2.0"
