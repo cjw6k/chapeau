@@ -1,8 +1,6 @@
 # Chapeau
 A component to run php process pipelines via console application.
 
-[![builds.sr.ht status](https://builds.sr.ht/~cjw6k.svg?search=chapeau)](https://builds.sr.ht/~cjw6k?search=chapeau)
-
 ## Usage
 1. Require chapeau as a dependency with [composer](https://getcomposer.org/): `composer require cjw6k/chapeau`.
 2. Instantiate a new `Chapeau\ConsoleApp` and `->run()`.
